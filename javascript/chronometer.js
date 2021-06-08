@@ -22,15 +22,15 @@ class Chronometer {
   }
 
   computeTwoDigitNumber(value) {
-    // if(value < 10) {
-    //   value = "0" + value
-    //   value = "0" + value
+    //  if(value < 10) {
+    //   this.getSeconds = ("0" + value).slice(-2)
+    //   this.getMinutes = ("0" + value).slice(-2)
     // }
     // else {
     //   // value.toString()
-  //   //   // value.toString()
-  //   }
-  //   }
+    // //   // value.toString()
+    // }
+    // }
     
   }
 
