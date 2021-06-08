@@ -1,3 +1,7 @@
+// teste teste teste teste vagner
+
+
+
 const chronometer = new Chronometer();
 
 // get the buttons:
