@@ -11,16 +11,27 @@ class Chronometer {
   }
 
   getMinutes() {
-    Math.round(this.currentTime / 60)
+    return Math.round(this.currentTime / 60)
+    
+    
     
   }
 
   getSeconds() {
-    // ... your code goes here
+    return this.currentTime % 60
   }
 
   computeTwoDigitNumber(value) {
-    // ... your code goes here
+    // if(value < 10) {
+    //   value = "0" + value
+    //   value = "0" + value
+    // }
+    // else {
+    //   // value.toString()
+  //   //   // value.toString()
+  //   }
+  //   }
+    
   }
 
   stop() {
