@@ -5,13 +5,14 @@ class Chronometer {
   }
 
   start(callback) {
-    let cron = setInterval(() => {
+    this.intervalId = setInterval(() => {
       this.currentTime += 1
     }, 1000)
   }
 
   getMinutes() {
-    // ... your code goes here
+    Math.round(this.currentTime / 60)
+    
   }
 
   getSeconds() {
