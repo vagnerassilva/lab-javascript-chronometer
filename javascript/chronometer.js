@@ -11,7 +11,7 @@ class Chronometer {
   }
 
   getMinutes() {
-    return Math.round(this.currentTime / 60)
+    return Math.floor(this.currentTime / 60)
     
     
     
@@ -22,6 +22,13 @@ class Chronometer {
   }
 
   computeTwoDigitNumber(value) {
+    if(value < 10) {
+      return "0" + value.toString()
+    }
+    else {
+      return value.toString()
+    }
+  }
     //  if(value < 10) {
     //   this.getSeconds = ("0" + value).slice(-2)
     //   this.getMinutes = ("0" + value).slice(-2)
@@ -32,18 +39,19 @@ class Chronometer {
     // }
     // }
     
-  }
 
   stop() {
-    // ... your code goes here
+    return clearInterval(this.intervalId)
   }
 
   reset() {
-    // ... your code goes here
+    return this.currentTime = 0
   }
 
   split() {
-    // ... your code goes here
+    let splitMinutes = this.computeTwoDigitNumber(this.getMinutes());
+    let splitSeconds = this.computeTwoDigitNumber(this.getSeconds());
+    return `${splitMinutes}:${splitSeconds}`;
   }
 }
 
