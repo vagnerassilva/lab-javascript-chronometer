@@ -19,6 +19,7 @@ function printTime() {
   printMilliseconds();
 }
 
+
 function printMinutes() {
   const minutes = chronometer.computeTwoDigitNumber(chronometer.getMinutes())
 
