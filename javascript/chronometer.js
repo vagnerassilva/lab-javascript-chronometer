@@ -1,57 +1,61 @@
 class Chronometer {
   constructor() {
     this.currentTime = 0;
-    this.intervalId = null
+    this.intervalId = null;
   }
 
   start(callback) {
-    this.intervalId = setInterval(() => {
-      this.currentTime += 1
-    }, 1000)
+     this.intervalId = setInterval(() => {
+      this.currentTime++;
+       if (callback) {
+         callback();
+       } 
+    }, 10)
   }
 
   getMinutes() {
-    return Math.floor(this.currentTime / 60)
-    
-    
+    return Math.floor(this.currentTime / 6000)
     
   }
 
   getSeconds() {
-    return this.currentTime % 60
+    return Math.floor(this.currentTime / 100) % 60;
+  }
+
+  getMilliseconds() {
+    return this.currentTime % 100;
   }
 
   computeTwoDigitNumber(value) {
-    if(value < 10) {
-      return "0" + value.toString()
-    }
-    else {
-      return value.toString()
-    }
+    return value.toString().padStart(2, '0') 
+    //padStart coloca o segundo argumento no começo caso não tenha o 
+    //número de casas estabelecido no primeiro argumento
+    
+    //outra opção
+    //if(value < 10) {
+      //return "0" + value.toString()
+    //}
+    //else {
+      //return value.toString()
+    //}
   }
-    //  if(value < 10) {
-    //   this.getSeconds = ("0" + value).slice(-2)
-    //   this.getMinutes = ("0" + value).slice(-2)
-    // }
-    // else {
-    //   // value.toString()
-    // //   // value.toString()
-    // }
-    // }
     
 
   stop() {
-    return clearInterval(this.intervalId)
+    clearInterval(this.intervalId);
   }
 
   reset() {
-    return this.currentTime = 0
+    this.currentTime = 0
   }
 
   split() {
-    let splitMinutes = this.computeTwoDigitNumber(this.getMinutes());
-    let splitSeconds = this.computeTwoDigitNumber(this.getSeconds());
-    return `${splitMinutes}:${splitSeconds}`;
+    // "mm:ss"
+    const minutes = this.computeTwoDigitNumber(this.getMinutes());
+    const seconds = this.computeTwoDigitNumber(this.getSeconds());
+    const milliseconds = this.computeTwoDigitNumber(this.getMilliseconds());
+    
+    return `${minutes}:${seconds}:${milliseconds}`;
   }
 }
 
